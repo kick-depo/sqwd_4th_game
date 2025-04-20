@@ -3,6 +3,17 @@ player1 = 10
 player2 = 10
 count = 0
 
+def chech_winner(player1, player2, count):
+    if player1 <= 0:
+        print("Игрок 2 победил! (^.^)")
+        print(f"Общее число ходов: {count}")
+        return True
+    elif player2 <= 0:
+        print("Игрок 1 победил! [^_^]")
+        print(f"Общее число ходов: {count}")
+        return True
+    return False
+
 while True:
     print(f"Ход первого игрока! (Всего {player1} шариков)")
     mind_player1 = int(input("Введите число шариков в вашей руке: \n"))
@@ -21,14 +32,8 @@ while True:
         player1 = player1 + mind_player1
 
     count = count + 1
-    if player1 <= 0:
-        print("Игрок 2 победил! (^.^)")
-        print(f"Общее число ходов: {count}")
+    if chech_winner(player1, player2, count):
         break
-    elif player2 <= 0:
-        print("Игрок 1 победил! [^_^]")
-        print(f"Общее число ходов: {count}")
-        break 
         
     print(f"Ход второго игрока. (Всего {player2} шариков)")
     mind_player2 = rn.randint(1, player2)
@@ -46,12 +51,6 @@ while True:
         player2 = player2 + mind_player2
         
     count = count + 1
-    if player1 <= 0:
-        print("Игрок 2 победил! (^.^)")
-        print(f"Общее число ходов: {count}")
+    if chech_winner(player1, player2, count):
         break
-    elif player2 <= 0:
-        print("Игрок 1 победил! [^_^]")
-        print(f"Общее число ходов: {count}")
-        break 
     
